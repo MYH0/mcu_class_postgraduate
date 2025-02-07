@@ -116,11 +116,7 @@ int main(void)
 		HAL_GPIO_WritePin(GPIOA, LED0_Pin, 1);
 		HAL_GPIO_WritePin(GPIOA, LED1_Pin, 1);
 		HAL_GPIO_WritePin(GPIOA, LED2_Pin, 0);
-		HAL_Delay(5000);
-
-		
-		
-		
+		HAL_Delay(5000);		
   }
   /* USER CODE END 3 */
 }

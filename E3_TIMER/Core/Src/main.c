@@ -108,7 +108,7 @@ int main(void)
 			if(key0_value==0)
 				__HAL_TIM_SET_AUTORELOAD(&htim3,999);
 			if(key1_value==0)
-				__HAL_TIM_SetAutoreload(&htim3,499);
+				__HAL_TIM_SET_AUTORELOAD(&htim3,499);
 		}
 		
   }
