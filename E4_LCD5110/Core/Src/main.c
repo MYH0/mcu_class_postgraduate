@@ -77,13 +77,13 @@ void LCD_WriteString(uchar X,uchar Y,char *s);
 void LCD_WriteByte(uchar dat, uchar command)
 {
     uchar i;
-    LCD_CE0;                    // Ê¹ÄÜĞ¾Æ¬
-    if (command == 0)           // Ğ´ÃüÁî
+    LCD_CE0;                    // ä½¿èƒ½èŠ¯ç‰‡
+    if (command == 0)           // å†™å‘½ä»¤
         LCD_DC0;
-    else                        // Ğ´Êı¾İ
+    else                        // å†™æ•°æ®
         LCD_DC1;
     
-    for(i=0; i<8; i++)         // ·¢ËÍÒ»¸ö×Ö½Ú
+    for(i=0; i<8; i++)         // å‘é€ä¸€ä¸ªå­—èŠ‚
     {
         if(dat & 0x80)
             LCD_DIN1;
@@ -93,13 +93,13 @@ void LCD_WriteByte(uchar dat, uchar command)
         dat = dat << 1;
         LCD_CLK1;
     }
-    LCD_CE1;                    // ½ûÖ¹Ğ¾Æ¬
+    LCD_CE1;                    // ç¦æ­¢èŠ¯ç‰‡
 }
 
 void LCD_Set_XY(uchar X, uchar Y)
 {
-    LCD_WriteByte(0x40 | Y, 0);    // YÖáµØÖ·
-    LCD_WriteByte(0x80 | X, 0);    // XÖáµØÖ·
+    LCD_WriteByte(0x40 | Y, 0);    // Yè½´åœ°å€
+    LCD_WriteByte(0x80 | X, 0);    // Xè½´åœ°å€
 }
 
 void LCD_Clear(void)
@@ -115,18 +115,18 @@ void LCD_Clear(void)
 
 void LCD_Init(void)
 {
-    LCD_RST0;                  // ¸´Î»LCD
+    LCD_RST0;                  // å¤ä½LCD
     HAL_Delay(100);
     LCD_RST1;
     
-    LCD_WriteByte(0x21, 0);    // Ê¹ÓÃÀ©Õ¹Ö¸Áî¼¯
-    LCD_WriteByte(0xC8, 0);    // ÉèÖÃLCDÆ«ÖÃµçÑ¹
-    LCD_WriteByte(0x06, 0);    // ÎÂ¶ÈĞ£Õı
+    LCD_WriteByte(0x21, 0);    // ä½¿ç”¨æ‰©å±•æŒ‡ä»¤é›†
+    LCD_WriteByte(0xC8, 0);    // è®¾ç½®LCDåç½®ç”µå‹
+    LCD_WriteByte(0x06, 0);    // æ¸©åº¦æ ¡æ­£
     LCD_WriteByte(0x13, 0);    // 1:48
-    LCD_WriteByte(0x20, 0);    // Ê¹ÓÃ»ù±¾Ö¸Áî¼¯
-    LCD_WriteByte(0x0C, 0);    // ÆÕÍ¨Ä£Ê½ÏÔÊ¾
+    LCD_WriteByte(0x20, 0);    // ä½¿ç”¨åŸºæœ¬æŒ‡ä»¤é›†
+    LCD_WriteByte(0x0C, 0);    // æ™®é€šæ¨¡å¼æ˜¾ç¤º
     
-    LCD_Clear();               // ÇåÆÁ
+    LCD_Clear();               // æ¸…å±
 }
 
 void LCD_WriteChar(uchar x, uchar y, uchar c)
@@ -185,11 +185,11 @@ int main(void)
 	LCD_Init();
   HAL_Delay(100);
   
-  LCD_WriteString(0, 0, "xidian");	//Ñ§Ğ£
-	LCD_WriteString(0, 1, "electronic");	//Ñ§Ôº
-	LCD_WriteString(0, 2, "e-information");		//×¨Òµ
-	LCD_WriteString(0, 3, "menyuhan");	//ĞÕÃû
-	LCD_WriteString(0, 4, "24021211952");	//Ñ§ºÅ
+  LCD_WriteString(0, 0, "xidian");	//å­¦æ ¡
+	LCD_WriteString(0, 1, "xx");	//å­¦é™¢
+	LCD_WriteString(0, 2, "xxx");		//ä¸“ä¸š
+	LCD_WriteString(0, 3, "xxx");	//å§“å
+	LCD_WriteString(0, 4, "xxx");	//å­¦å·
 
   /* USER CODE END 2 */
 
